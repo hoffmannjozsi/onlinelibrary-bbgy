@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Könyvtár főoldal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+		<noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+		
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="http://www.bibliabaptista.hu">Biblia Baptista Gyülekezet</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a th:href="@{/}">Könyvtár kezdőlap</a></li>
+							<li><a th:href="@{/books}">Könyvek</a></li>
+							<li>
+								<a href="#">Szerzők</a>
+								<ul>
+									<li><a th:href= "@{/authorsA-C}">A - CS</a></li>
+									<li><a th:href= "@{/authorsD-F}">D - F</a></li>
+									<li><a th:href= "@{/authorsG-I}">G - I</a></li>
+									<li><a th:href= "@{/authorsJ-L}">J - L</a></li>
+									<li><a th:href= "@{/authorsM-O}">M - O</a></a></li>
+									<li><a th:href= "@{/authorsP-S}">P - S</a></li>
+									<li><a th:href= "@{/authorsT-V}">T - V</a></li>
+									<li><a th:href= "@{/authorsW-Z}">W - Z</a></li>
+								</ul>
+							</li>
+							<li><a th:href= "@{/info}">Infó</a></li>
+							<!--<li><a href="#" class="button primary">Bejeletkezés</a></li>-->
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<div class="box alt">						
+							<h2>Üdvözöllek a Pécsi Biblia Baptista Gyülekezet könyvtárában!</h2>
+						
+							<p>Böngéssz a gyülekezet és a tagok könyvei között, majd látogass meg minket, ha szeretnéd kikölcsönözni valamelyik könyvünket.</p>
+							<p>Az oldalon egyedi adatbázist találsz azon keresztyén szerzőről, akiktől könyvekkel rendelkezünk.</p>
+							<div class="row gtr-50 gtr-uniform ">
+							<div  class="col-4 col-6-xsmall"><h4><span class="image fit"><span> Könyvek száma:<br><span th:text = "${bookNums}">"000</span></span></h4></div>
+							<div class="col-4 col-6-xsmall"><h4><span class="image fit">Szerzők száma:<br><span th:text = "${authorNums}">"000</span></span></h4></div>
+							<div class="col-4 col-6-xsmall"><h4><span class="image fit">Műfajok száma:<br><span th:text = "${genreNums}">"000</span></span></h4></div>
+						</div>
+						</div>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<!--<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>-->
+								<h3>Legújabb könyveink</h3>
+								<div class="box alt">
+									<div  class="row gtr-50 gtr-uniform">										
+										<div th:each = "book: ${books}" class="col-4 col-6-xsmall"><span class="image fit">
+										<img th:src="'data:image/jpeg;base64,' + ${book.base64EncodedImageString}" alt = "${book.title}" width="25%" height="25%" /></span>
+										<center>
+										<b><span th:text = "${book.genre1.name}"></span></b><br>
+										<span ><a th:href = "@{/books/view/{id}(id=${book.id})}" class="button primary"	>Megnézem</a></span>
+										</center>
+										</div>
+										
+									</div>
+								</div>
+	 
+  								
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						
+						<li><a href="https://twitter.com/hoffmann_jzsf" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/hoffman.jozsef.5" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>			
+						<li><a th:href= "@{/info}" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Hoffmann József <script>document.write(new Date().getFullYear());</script></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script th:src="@{/assets/js/jquery.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrolly.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.dropotron.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrollex.min.js}"></script>
+			<script th:src="@{/assets/js/browser.min.js}"></script>
+			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+			<script th:src="@{/assets/js/util.js}"></script>
+			<script th:src="@{/assets/js/main.js}"></script>
+
+	</body>
+</html >

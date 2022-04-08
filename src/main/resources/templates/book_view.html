@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Könyv nézet</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+		<noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="http://www.bibliabaptista.hu">Biblia Baptista Gyülekezet</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a th:href="@{/}">Könyvtár kezdőlap</a></li>
+							<li><a th:href="@{/books}">Könyvek</a></li>
+							<li>
+								<a href="#">Szerzők</a>
+								<ul>
+									<li><a th:href= "@{/authorsA-C}">A - CS</a></li>
+									<li><a th:href= "@{/authorsD-F}">D - F</a></li>
+									<li><a th:href= "@{/authorsG-I}">G - I</a></li>
+									<li><a th:href= "@{/authorsJ-L}">J - L</a></li>
+									<li><a th:href= "@{/authorsM-O}">M - O</a></a></li>
+									<li><a th:href= "@{/authorsP-S}">P - S</a></li>
+									<li><a th:href= "@{/authorsT-V}">T - V</a></li>
+									<li><a th:href= "@{/authorsW-Z}">W - Z</a></li>
+								</ul>
+							</li>
+							<li><a th:href= "@{/info}">Infó</a></li>
+							<!--<li><a href="#" class="button primary">Bejeletkezés</a></li>-->
+						</ul>
+					</nav>
+				</header>
+				
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2 th:text = "${book.title}">A könyv címe</h2>
+							<p><span th:text = "${book.genre1.name}"></span>
+							<span th:if = "${book.genre2.id != 0}">, <span th:text = "${book.genre2.name}"></span></span></p>
+						</header>
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<section id="sidebar">
+										<section>
+											<h3>Borítókép</h3>
+											<p>
+											<img class="img-fluid" th:src="'data:image/jpeg;base64,' + ${book.base64EncodedImageString}" alt ="" width="98%" heiht= "98%"/>
+											</p>
+											<footer>
+											<CENTER>										
+											<p>Tulajdonos: <b><span th:text = "${book.owner.name}">Tulajdonos</b></span></p>		
+											<p>Státusz: <b><span th:text="${book.aviable} ? 'Kölcsönzés alatt' : 'Kölcsönözhető'"></span></b></p>									</CENTER>	
+											</footer>
+										</section>
+										<hr />
+										<!--<section>
+											<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+											<h3>Amet Lorem Tempus</h3>
+											<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+											<footer>
+												<ul class="actions">
+													<li><a href="#" class="button">Learn More</a></li>
+												</ul>
+											</footer>
+										</section>
+									</section> -->
+
+							</div>
+							<div class="col-8 col-12-medium imp-medium">
+
+								<!-- Content -->
+									<section id="content">
+										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+										<h3><i>Szerzők:</i></h3>
+										<h4 th:text = "${book.author1.firstName}+' '+${book.author1.lastName}">Szerző 1</h4>
+										
+										<h4 th:if = "${book.author2.id != 0}"><span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}">Szerző 2</h4>
+										<h4 th:if = "${book.author3.id != 0}"><span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}">Szerző 3</h4>
+										<p th:text = "${book.about}">Leírás</p>
+										<hr />
+										<h3><i>Információ a szerző(k)ről:</i></h3>
+										
+										<p><b><span th:text = "${book.author1.firstName}+' '+${book.author1.lastName}">Szerző 1></b></span><br>
+										<span><b>Szakterület: </b> <span th:text = "${book.author1.expertise}">Szakterület</span></span><br>
+										<span th:text = "${book.author1.about}">Szerzői információk</span>
+										<hr />
+										<p th:if = "${book.author2.id != 0}">																														
+										<b><span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}">Szerző 2</span></b><br>
+										<span><b>Szakterület: </b> <span th:text = "${book.author2.expertise}">Szakterület</span></span><br>
+										<span th:text = "${book.author2.about}">Szerzői információk</span>																			
+										</p> 
+										<hr th:if= "${book.author2.id != 0}" />	
+										
+										<p th:if = "${book.author3.id != 0}">																													
+										<b><span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}">Szerző 3</span></b><br>
+										<span><b>Szakterület: </b> <span th:text = "${book.author3.expertise}">Szakterület</span></span><br>
+										<span th:text = "${book.author3.about}">Szerzői információk</span>																			
+										</p> 
+										<hr th:if= "${book.author3.id != 0}" />	
+										
+									</section>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						
+						<li><a href="https://twitter.com/hoffmann_jzsf" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/hoffman.jozsef.5" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>			
+						<li><a th:href= "@{/info}" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Hoffmann József <script>document.write(new Date().getFullYear());</script></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script th:src="@{/assets/js/jquery.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrolly.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.dropotron.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrollex.min.js}"></script>
+			<script th:src="@{/assets/js/browser.min.js}"></script>
+			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+			<script th:src="@{/assets/js/util.js}"></script>
+			<script th:src="@{/assets/js/main.js}"></script>
+
+	</body>
+</html >

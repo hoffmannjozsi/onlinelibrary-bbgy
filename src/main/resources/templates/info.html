@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Információk</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+		<noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+		
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="http://www.bibliabaptista.hu">Biblia Baptista Gyülekezet</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a th:href="@{/}">Könyvtár kezdőlap</a></li>
+							<li><a th:href="@{/books}">Könyvek</a></li>
+							<li>
+								<a href="#">Szerzők</a>
+								<ul>
+									<li><a th:href= "@{/authorsA-C}">A - CS</a></li>
+									<li><a th:href= "@{/authorsD-F}">D - F</a></li>
+									<li><a th:href= "@{/authorsG-I}">G - I</a></li>
+									<li><a th:href= "@{/authorsJ-L}">J - L</a></li>
+									<li><a th:href= "@{/authorsM-O}">M - O</a></a></li>
+									<li><a th:href= "@{/authorsP-S}">P - S</a></li>
+									<li><a th:href= "@{/authorsT-V}">T - V</a></li>
+									<li><a th:href= "@{/authorsW-Z}">W - Z</a></li>
+								</ul>
+							</li>
+							<li><a th:href= "@{/info}">Infó</a></li>
+							<!--<li><a href="#" class="button primary">Bejeletkezés</a></li>-->
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						
+
+						<!-- Content -->
+							<section id="content">
+								
+								<h3>Kedves látogató!</h3>
+								<div class="box alt">
+									<p>Az itt található könyvtár böngésző alkalmazás elsősorban a gyülekezet tagjai számára készült. Célja, hogy elősegítse 
+									a választást a gyülekezet könyvtári könyvei, ill. a tagok a rendszerben rögzített saját könyvei között.<p>
+									<p>Könyvet postán nem küldünk, de ha a környékünkön laksz és szívesen kikölcsönöznéd valamelyik köyvünket, szívesen látunk 
+									nyilvános alkalmaink bármelyikén, és megbeszélhetjük, hogy kölcsönvedd azt.<p>
+									<br>
+									<p>Ez az alkalmazás saját fejlesztés. Ha szeretnél ilyet a saját gyülekezeted könyvtára  - vagy akárki más - számára, keress meg az alul 
+									található üzenetküldő alkalmazások valamelyikén, vagy a jo!BzsefHo%LKffmanV&n7"1 [kukac] gm+ai()l.c|om elektromos levél címen.<br>
+									<i>A levélcímből távolítsd el a speciális karaktereket és a nagybetűket és a "kukac"-t helyettesítsd be az ismert karakterre. 
+									Minderre a levélcím gyűjtő alkalmazások elleni védekezés miatt van szükség.</i><p>  
+									<br>
+									<p>Gyülekezünk megtalálható:<br>
+									Pécs-Rózsadomb, Polgárszőlő u. 1.<br>
+									<b>Alkalmaink:</b> </br>
+									Vasárnap: 10 és 17 óra<br>
+									Szerda: 18 óra<br>
+									T.f.: (7%0) 9*41=11+6/đ7 <i>(minusz spec.karakterek)</i>
+									</p>
+									
+										
+									</div>
+								
+	 
+  								
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						
+						<li><a href="https://twitter.com/hoffmann_jzsf" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/hoffman.jozsef.5" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>			
+						<li><a th:href= "@{/info}" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Hoffmann József <script>document.write(new Date().getFullYear());</script></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script th:src="@{/assets/js/jquery.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrolly.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.dropotron.min.js}"></script>
+			<script th:src="@{/assets/js/jquery.scrollex.min.js}"></script>
+			<script th:src="@{/assets/js/browser.min.js}"></script>
+			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+			<script th:src="@{/assets/js/util.js}"></script>
+			<script th:src="@{/assets/js/main.js}"></script>
+
+	</body>
+</html >
