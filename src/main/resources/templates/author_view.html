@@ -66,13 +66,13 @@
 											<th> Könyv címe</th>
 											<th> Szerző(k)</th>							
 											<th> Műfaj </th>
-											<th> Bővebben </th>
+											
 										</tr>
 									</thead>
 									
 									<tbody>		
 										<tr th:each = "book: ${author.books}">
-											<td th:text = "${book.title}"></td>											
+											<td><a th:href = "@{/books/view/{id}(id=${book.id})}"> <span th:text = "${book.title}">Könyv címe</span></a></td>									
 											<td><span th:text = "${book.author1.firstName}+' '+${book.author1.lastName}"></span>
 											<span th:if = "${book.author2.id != 0}">, <span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}"></span> </span>					
 											<span th:if = "${book.author3.id != 0}">, <span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}"></span> </span>
@@ -80,19 +80,11 @@
 											<td> <span th:text = "${book.genre1.name}"></span>
 											<span th:if = "${book.genre2.id != 0}">, <span th:text = "${book.genre2.name}"></span></span>
 											</td> 
-											<td class="align-middle">
-												<a th:href = "@{/books/view/{id}(id=${book.id})}"
-												 class = "button primary">
-												 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-						  							<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-						  							<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-												 </svg>
-												 </a>
-												</td>
+											
 											</tr>
 											
 											<tr th:each = "book: ${author.books2}">
-											<td th:text = "${book.title}"></td>											
+											<td><a th:href = "@{/books/view/{id}(id=${book.id})}"> <span th:text = "${book.title}">Könyv címe</span></a></td>									
 											<td><span th:text = "${book.author1.firstName}+' '+${book.author1.lastName}"></span>
 											<span th:if = "${book.author2.id != 0}">, <span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}"></span> </span>					
 											<span th:if = "${book.author3.id != 0}">, <span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}"></span> </span>
@@ -100,19 +92,11 @@
 											<td> <span th:text = "${book.genre1.name}"></span>
 											<span th:if = "${book.genre2.id != 0}">, <span th:text = "${book.genre2.name}"></span></span>
 											</td> 
-											<td class="align-middle">
-												<a th:href = "@{/books/view/{id}(id=${book.id})}"
-												 class = "button primary">
-												 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-						  							<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-						  							<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-												 </svg>
-												 </a>
-												</td>
+											
 											</tr>
 											
 											<tr th:each = "book: ${author.books3}">
-											<td th:text = "${book.title}"></td>											
+											<td><a th:href = "@{/books/view/{id}(id=${book.id})}"> <span th:text = "${book.title}">Könyv címe</span></a></td>											
 											<td><span th:text = "${book.author1.firstName}+' '+${book.author1.lastName}"></span>
 											<span th:if = "${book.author2.id != 0}">, <span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}"></span> </span>					
 											<span th:if = "${book.author3.id != 0}">, <span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}"></span> </span>
@@ -120,15 +104,7 @@
 											<td> <span th:text = "${book.genre1.name}"></span>
 											<span th:if = "${book.genre2.id != 0}">, <span th:text = "${book.genre2.name}"></span></span>
 											</td> 
-											<td class="align-middle">
-												<a th:href = "@{/books/view/{id}(id=${book.id})}"
-												 class = "button primary">
-												 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-						  							<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-						  							<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-												 </svg>
-												 </a>
-												</td>
+											
 											</tr>
 										
 										</tbody >
@@ -163,6 +139,25 @@
 			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
 			<script th:src="@{/assets/js/util.js}"></script>
 			<script th:src="@{/assets/js/main.js}"></script>
+			
+	  <script>
+      	document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+                  }
+                });
+                }
+            });
+    	</script>			
 
 	</body>
 </html>

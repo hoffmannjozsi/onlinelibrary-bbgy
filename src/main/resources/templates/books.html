@@ -48,7 +48,8 @@
 					<center>
 						<h2>Könyvek listázása </h2>
 						<p>Keress könyvet cím alapján, vagy válassz egy műfajt.</p>
-						<p>Szerzőkre a "Szerzők" menüpontban, a megfelelő almenü kiválasztásával tusdz rákeresni</p>
+						<p>A könyv címére kattintva (vagy koppintva) az adott könyv adatlapját tudod megnézni.</p>
+						<p>Szerzőkre a "Szerzők" menüpontban, a megfelelő almenü kiválasztásával tudsz rákeresni</p>
 					</center>
 						<!-- Content -->
 							<section id="content">
@@ -58,7 +59,7 @@
 									<table>
 									<thead>
 										<tr>
-											<th colspan="2"> 
+											<th > 
 											<form th:action="@{/books}" method="GET" class="input-group mb-2">
 						  						<input type="text" 
 						  						name = "keyword"  						
@@ -95,14 +96,15 @@
 											<th> Könyv címe</th>
 											<th> Szerző(k)</th>							
 											<th> Műfaj </th>
-											<th> Bővebben </th>
+											<!--<th> Bővebben </th>-->
 										</tr>
 									</thead>
 									
 									<tbody th:if = "${!books.isEmpty}">		
 										<tr th:each = "book: ${books}">
-											<td th:text = "${book.title}"></td>
-											<!--<td th:text = "${book.author1.firstName}+' '+${book.author1.lastName}+', '+ ${book.author2.firstName}+' '+${book.author2.lastName}+', '+ ${book.author3.firstName}+' '+${book.author3.lastName}"></td>-->
+											
+											<td> <a th:href = "@{/books/view/{id}(id=${book.id})}" ><span  th:text = "${book.title}"></span></a></td>
+											
 											<td><span th:text = "${book.author1.firstName}+' '+${book.author1.lastName}"></span>
 											<span th:if = "${book.author2.id != 0}">, <span th:text = "${book.author2.firstName}+' '+${book.author2.lastName}"></span> </span>					
 											<span th:if = "${book.author3.id != 0}">, <span th:text = "${book.author3.firstName}+' '+${book.author3.lastName}"></span> </span>
@@ -110,6 +112,7 @@
 											<td> <span th:text = "${book.genre1.name}"></span>
 											<span th:if = "${book.genre2.id != 0}">, <span th:text = "${book.genre2.name}"></span></span>
 											</td> 
+											<!--
 											<td class="align-middle">
 												<a th:href = "@{/books/view/{id}(id=${book.id})}"  class = "button primary">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -117,7 +120,7 @@
 						  							<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 												 </svg>
 												 </a>
-											</td>
+											</td> -->
 										</tr>
 									
 									</tbody >
@@ -152,6 +155,25 @@
 			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
 			<script th:src="@{/assets/js/util.js}"></script>
 			<script th:src="@{/assets/js/main.js}"></script>
+			
+	  <script>
+      	document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+                  }
+                });
+                }
+            });
+    	</script>			
 
 	</body>
 </html>

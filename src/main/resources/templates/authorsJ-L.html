@@ -50,7 +50,9 @@
 							<h2>Szerzők J - L-ig vezetéknév alapján</h2>
 						
 							<p>Itt böngészhetsz a könyvek szerzői között.</p>
-							<p>Az alábbi adatbázisban a könyvek szerzőiről találhatsz információkat, melyek hasznosak lehetnek egy adott könyv kiválasztásánál.</p>
+							<p>Az alábbi adatbázisban a könyvek szerzőiről találhatsz információkat, melyek hasznosak lehetnek egy adott könyv kiválasztásánál.<br>
+							Kattints (vagy koppints) a szerző nevére!
+							</p>
 							
 						</div>
 						</header>
@@ -65,19 +67,14 @@
 											<tr>
 												<th>Név</th>
 												<th>Szakterület</th>
-												<th>Bővebben</th>
+												
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each = "author: ${authorsJ}">
-												<td th:text = "${author.lastName}+', '+${author.firstName}">Név</td>
+												<td> <a th:href = "@{/author_view/{id}(id=${author.id})}"><span th:text = "${author.lastName}+', '+${author.firstName}">Név</span></a> </td>
 												<td th:text = "${author.expertise}">Szakterület</td>
-												<td>
-												<a th:href = "@{/author_view/{id}(id=${author.id})}"
-						 						class = "button primary">Megnézem									 
-												 </a>
-						 						
-												</td>
+												
 											</tr>
 											
 										</tbody>
@@ -92,18 +89,14 @@
 											<tr>
 												<th>Név</th>
 												<th>Szakterület</th>
-												<th>Bővebben</th>
+												
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each = "author: ${authorsK}">
-												<td th:text = "${author.lastName}+', '+${author.firstName}">Név</td>
+												<td> <a th:href = "@{/author_view/{id}(id=${author.id})}"><span th:text = "${author.lastName}+', '+${author.firstName}">Név</span></a> </td>
 												<td th:text = "${author.expertise}">Szakterület</td>
-												<td>
-												<a th:href = "@{/author_view/{id}(id=${author.id})}"
-						 						class = "button primary">Megnézem									 
-												 </a>
-												</td>
+												
 											</tr>
 											
 										</tbody>
@@ -118,18 +111,14 @@
 											<tr>
 												<th>Név</th>
 												<th>Szakterület</th>												
-												<th>Bővebben</th>
+												
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each = "author: ${authorsL}">
-												<td th:text = "${author.lastName}+', '+${author.firstName}">Név</td>
+												<td> <a th:href = "@{/author_view/{id}(id=${author.id})}"><span th:text = "${author.lastName}+', '+${author.firstName}">Név</span></a> </td>
 												<td th:text = "${author.expertise}">Szakterület</td>
-												<td>
-												<a th:href = "@{/author_view/{id}(id=${author.id})}"
-						 						class = "button primary">Megnézem									 
-												 </a>
-												</td>
+												
 											</tr>
 											
 										</tbody>
@@ -165,6 +154,25 @@
 			<script th:src="@{/assets/js/breakpoints.min.js}"></script>
 			<script th:src="@{/assets/js/util.js}"></script>
 			<script th:src="@{/assets/js/main.js}"></script>
+			
+	  <script>
+      	document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+                  }
+                });
+                }
+            });
+    	</script>			
 
 	</body>
 </html>
