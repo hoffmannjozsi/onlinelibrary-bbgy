@@ -111,7 +111,7 @@ input, select, textarea {
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #e44c65;
+		color: rgb(236, 132, 150);
 		text-decoration: none;
 	}
 
@@ -2844,6 +2844,7 @@ input, select, textarea {
 		height: 3em;
 		line-height: 3em;
 		padding: 0 2.25em;
+		margin-top: 1em;
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
